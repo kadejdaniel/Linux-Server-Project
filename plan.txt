@@ -1,0 +1,5 @@
+1. praca z gitem
+2. automatyczne robienie backup'ow
+3. monitoring procesow
+4. proste skrypty pomagajace w automatyzacji, czy to serwera czy gita
+5. skrypt do sprawdzenia wolnego miejsca na dysku i ewentualnego wyslania alertu mailem
