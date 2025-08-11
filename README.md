@@ -1,9 +1,14 @@
 Co planuje zrobić:
-praca z gitem, aktualizowanie zmian w repozytorium
-Automatyczne robienie backupów
-Chce stworzyć użytkowników i zalogować się do mojego serwera z innego komputera
-Monitoring procesów, ale nie wiem po co
-zrobienie jakis prostych skryptow ktore pomoga w automatyzacji
+
+- praca z gitem, aktualizowanie zmian w repozytorium
+  
+- Automatyczne robienie backupów
+  
+- Chce stworzyć użytkowników i zalogować się do mojego serwera z innego komputera
+  
+- Monitoring procesów, ale nie wiem po co
+  
+- zrobienie jakis prostych skryptow ktore pomoga w automatyzacji
 
 
 Pomysły na skrypty:
