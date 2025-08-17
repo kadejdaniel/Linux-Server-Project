@@ -1,10 +1,10 @@
 #!/bin/bash
 
 SOURCE="/home/daniel/mainDirectory"
-DEST="home/daniel/backupDic"
+DEST="/home/daniel/backupDic"
 
-DATE= $(date +"%Y%m%d_%H%M%S")
-BACKUP_NAME ="backup_$DATE.tar.gz"
+DATE=$(date +"%Y%m%d_%H%M%S")
+BACKUP_NAME="backup_$DATE.tar.gz"
 
 mkdir -p "$DEST"
 
