@@ -1,0 +1,11 @@
+Moim planem jest połączenie się przez ssh z mojego domowego PC z windowsem do linux server który stoi na maszynie wirtualnej (VirtualBox), wszystko odbywać się będzie w sieci lokalnej (LAN).
+Krok 1
+Aby połączyć się z nim nalezy ustawić na VM karte mostkowaną zamiast NAT aby server (jego adres IP) z wirtualki byl widoczny dla innych urządzeń,
+ponieważ domyślnie ustawiony NAT chowa adres za zasłoną hosta (komputera na którym jest VB).
+Krok 2
+Następnym krokiem jest zmiana ustawień firewall zarówno u gościa jak i servera linux. Firewall musi przepuścić połączenia na porcie 22 czyli domyślnym protokole SSH
+Krok 3
+Ważną rzeczą jest instalacja i konfiguracja SSH na serverze, openssh-server
+Krok 4
+Oba urządzenia muszą znajdować się w tej samej sieci.
+Krok 5
