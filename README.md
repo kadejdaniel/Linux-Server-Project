@@ -13,6 +13,7 @@ Praktyczna implementacja umiejętności administracji serwerem Linux (bez GUI) p
 - Skrypt backupujący - Automatyczne tworzenie kopii zapasowych wskazanych folderów
 - Skrypt zarządzania użytkownikami - Automatyzacja tworzenia użytkowników z katalogami domowymi i przypisywaniem grup
 - Skrypt aktualizacji Git - Automatyzacja commitów i pushowania zmian do repozytorium
+- Skrypt automatycznej aktualizacji systemu - Automatyzacja aktualizowania systemu po przez instalacje nowych pakietów i usunięcie niepotrzebnych
 
 🛠️ **Narzędzia i Technologie**
 - VirtualBox - Wirtualizacja środowiska serwerowego
@@ -22,8 +23,7 @@ Praktyczna implementacja umiejętności administracji serwerem Linux (bez GUI) p
 
 🔜 **Kolejne Kroki**
 - Implementacja monitorowania wolnego miejsca na dysku z alertami
-- Skrypt automatycznej aktualizacji systemu i pakietów
 - Konfiguracja monitorowania procesów systemowych
 - Rozwój skryptów zabezpieczających system
-- Połączenie PC (windows) z server linux który stoi na maszynie wirtualnej 
+
 
