@@ -14,6 +14,7 @@ Praktyczna implementacja umiejętności administracji serwerem Linux (bez GUI) p
 - Skrypt zarządzania użytkownikami - Automatyzacja tworzenia użytkowników z katalogami domowymi i przypisywaniem grup
 - Skrypt aktualizacji Git - Automatyzacja commitów i pushowania zmian do repozytorium
 - Skrypt automatycznej aktualizacji systemu - Automatyzacja aktualizowania systemu po przez instalacje nowych pakietów i usunięcie niepotrzebnych
+- Skrypt pokazujący stan serwera
 
 🛠️ **Narzędzia i Technologie**
 - VirtualBox - Wirtualizacja środowiska serwerowego
