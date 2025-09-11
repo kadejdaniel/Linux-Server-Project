@@ -1,0 +1,8 @@
+instalacje openssh-server
+$sudo apt update - sluzace do aktualizacji repo
+$sudo apt install openssh-server - instalcja ssh server
+nastepnie nalezy wlaczyc ssh
+$sudo systemctl enable ssh
+$sudo systemctl start ssh
+oraz aby zobaczyc czy usluga dziala wpiusujemy komende
+$sudo systemctl status ssh
