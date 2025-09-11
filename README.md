@@ -1,5 +1,5 @@
 📋 **Cel Projektu**
-Praktyczna implementacja umiejętności administracji serwerem Linux poprzez automatyzację skryptów i konfigurację systemu. Skupienie na kluczowych zadaniach sysadmina z naciskiem na bezpieczeństwo, automatyzację i zdalne zarządzanie.
+Praktyczna implementacja umiejętności administracji serwerem Linux (bez GUI) poprzez automatyzację skryptów i konfigurację systemu. Skupienie na kluczowych zadaniach sysadmina z naciskiem na bezpieczeństwo, automatyzację i zdalne zarządzanie.
 
 🎯**Kluczowe Osiągnięcia**
 
