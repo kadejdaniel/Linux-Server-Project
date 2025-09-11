@@ -5,6 +5,7 @@ Praktyczna implementacja umiejętności administracji serwerem Linux poprzez aut
 
 🔐 **Konfiguracja Dostępu Zdalnego**
 - Połączenie SSH - Ustanowiono bezpieczne połączenie między komputerem z OpenSUSE a serwerem Linux na maszynie wirtualnej
+- Połączenie SSH - Ustanowiono bezpieczne połączenie między komputerem z Windows 11 a serwerem Linux na maszynie wirtualnej
 - Konfiguracja sieci - Ustawienie karty mostkowanej w VirtualBox dla dostępu w sieci LAN
 - Hardening bezpieczeństwa - Konfiguracja firewalla i zabezpieczenie dostępu SSH
 
