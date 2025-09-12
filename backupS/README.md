@@ -1,22 +1,22 @@
 skrypt polega na zapisywaniu jednego foldera glownego, do foldera o nazwie backupDic
 
-**#!/bin/bash
+**#!/bin/bash**
 
-SOURCE="/home/daniel/mainDirectory"
-DEST="/home/daniel/backupDic"
+**SOURCE="/home/daniel/mainDirectory"**
+**DEST="/home/daniel/backupDic"**
 
-DATE=$(date +"%Y%m%d_%H%M%S")
-BACKUP_NAME="backup_$DATE.tar.gz"
+**DATE=$(date +"%Y%m%d_%H%M%S")**
+**BACKUP_NAME="backup_$DATE.tar.gz"**
 
-mkdir -p "$DEST"
+**mkdir -p "$DEST"**
 
-tar -czf "$DEST/$BACKUP_NAME" -C "$SOURCE" .
+**tar -czf "$DEST/$BACKUP_NAME" -C "$SOURCE" .**
 
-echo "backup zapisany w: $DEST/$BACKUP_NAME"**
+**echo "backup zapisany w: $DEST/$BACKUP_NAME"**
 
 
 
-mamy dwie zmienne **SOURCE **i **DEST**
+mamy dwie zmienne **SOURCE** i **DEST**
 SOURCE="/home/daniel/mainDirectory"
 DEST="/home/daniel/backupDic"
 
@@ -28,7 +28,9 @@ BACKUP_NAME="backup_$DATE.tar.gz" - tutaj mamy zmienna ktora bedzie potrzebna na
 
 mkdir -p "$DEST" - warunek dzieki ktoremu powstanie folder o sciezce $DEST 
 
-tar -czf "$DEST/$BACKUP_NAME" -C "$SOURCE" . 
+rozbicie na części linijki do archiwizacji
+tar -czf "$DEST/$BACKUP_NAME" -C "$SOURCE" .
+
 **tar** - narzędzie do archiwizacji
 **c** - create tworzy nowe archiwum
 **z** - gzip, kompresuje plik
@@ -37,4 +39,7 @@ tar -czf "$DEST/$BACKUP_NAME" -C "$SOURCE" .
 **"$DEST/$BACKUP_NAME"** - sciezka do pliku w ktorym ma byc backup
 **.** - pakuj zawartosc folderu a nie folder
 
-echo "backup zapisany w $(DEST/BACKUP_NAME)"
+echo "backup zapisany w $DEST/$BACKUP_NAME"
+
+Aby uruchomic:
+najlepiej chmod +x lub chmod 100
