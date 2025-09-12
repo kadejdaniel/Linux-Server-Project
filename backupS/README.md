@@ -5,7 +5,9 @@ SOURCE="/home/daniel/mainDirectory"
 DEST="/home/daniel/backupDic"
 
 inicjalizujemy również zmienne BACKUP_NAME oraz DATE - aby mieć wszystko w latwiejszym dla nas formacie
+
 DATE=$(date +"%Y%m%d_%H%M%S") - date +"%Y%m%d_%H%M%S" pozwala nam zapisać date backupu w formacie (rok miesiac dzien _ godzina minuta sekunda)
+
 BACKUP_NAME="backup_$DATE.tar.gz" - tutaj mamy zmienna ktora bedzie potrzebna nam do zapisu koncowego czyli gdzie backup zostal zapisany
 
 mkdir -p "$DEST" - warunek dzieki ktoremu powstanie folder o sciezce $DEST 
