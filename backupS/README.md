@@ -1,6 +1,22 @@
 skrypt polega na zapisywaniu jednego foldera glownego, do foldera o nazwie backupDic
 
-mamy dwie zmienne SOURCE i DEST
+**#!/bin/bash
+
+SOURCE="/home/daniel/mainDirectory"
+DEST="/home/daniel/backupDic"
+
+DATE=$(date +"%Y%m%d_%H%M%S")
+BACKUP_NAME="backup_$DATE.tar.gz"
+
+mkdir -p "$DEST"
+
+tar -czf "$DEST/$BACKUP_NAME" -C "$SOURCE" .
+
+echo "backup zapisany w: $DEST/$BACKUP_NAME"**
+
+
+
+mamy dwie zmienne **SOURCE **i **DEST**
 SOURCE="/home/daniel/mainDirectory"
 DEST="/home/daniel/backupDic"
 
@@ -13,12 +29,12 @@ BACKUP_NAME="backup_$DATE.tar.gz" - tutaj mamy zmienna ktora bedzie potrzebna na
 mkdir -p "$DEST" - warunek dzieki ktoremu powstanie folder o sciezce $DEST 
 
 tar -czf "$DEST/$BACKUP_NAME" -C "$SOURCE" . 
-tar - narzędzie do archiwizacji
-c - create tworzy nowe archiwum
-z - gzip, kompresuje plik
-f - okresla rodzaj pliku
-C - change directory czyli zmien folder na zrodlowy
-"$DEST/$BACKUP_NAME" - sciezka do pliku w ktorym ma byc backup
-. - pakuj zawartosc folderu a nie folder
+**tar** - narzędzie do archiwizacji
+**c** - create tworzy nowe archiwum
+**z** - gzip, kompresuje plik
+**f** - okresla rodzaj pliku
+**C** - change directory czyli zmien folder na zrodlowy
+**"$DEST/$BACKUP_NAME"** - sciezka do pliku w ktorym ma byc backup
+**.** - pakuj zawartosc folderu a nie folder
 
 echo "backup zapisany w $(DEST/BACKUP_NAME)"
