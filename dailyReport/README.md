@@ -1,31 +1,83 @@
-skrypt polega na podaniu informacji o stanie serwera, podaje on dane o tym:
-- z czyjego hosta zostal zrobiony raport
-- kiedy raport zostal wykonany
-- informacje o systemie
-- ile jest miejsca na dysku
-- sprawdza zuzycie pamieci
-- czas pracy hosta
-a dane te są zapisywane w folderze /tmp/daily-report.txt, faktem jest ze moglem zamiast wpisywania tej sciezki stworzyc np REPORT = /tmp/daily-report.txt i przypisywać w formacie df - h >> "$REPORT_FILE"
+# 📊 Daily System Report Script
+Skrypt służy do generowania codziennych raportów o stanie serwera. Zbiera kluczowe informacje systemowe i zapisuje je w pliku tymczasowym, a następnie wyświetla raport w terminalu.
 
-echo "Codzienny raport systemu, data: $(date) !" - kiedy raport zostal zrobiony
-echo "Hostname: $(hostname)" - podaje informacje o hoscie
+---
 
-echo "Informacje o systemie" >> /tmp/daily-report.txt 
-uname -a >> /tmp/daily-report.txt - podaje informacje o systemie takie jak np:
+## 📖 Opis działania
 
-Linux – nazwa systemu (kernel name)
-hostname – nazwa hosta (nazwa serwera/maszyny)
-5.15.0-87-generic – wersja jądra
-#97-Ubuntu SMP Fri Aug 3 14:12:07 UTC 2025 – numer kompilacji jądra + kiedy i jak zostało zbudowane
-x86_64 – architektura sprzętowa
-GNU/Linux – system operacyjny
+### 1. Struktura raportu
+Skrypt generuje raport zawierający:
+- Informacje o autorze raportu
+- Datę i godzinę wykonania raportu
+- Nazwę hosta serwera
+- Szczegółowe informacje o systemie operacyjnym
+- Zajętość miejsca na dysku
+- Zużycie pamięci RAM
+- Obciążenie systemu i czas pracy
+- Status najważniejszych usług systemowych
 
-echo "MEMORY USAGE - sprawdzenie zuzycie pamieci:" >> /tmp/daily-report.txt
-free -h - komenda ta pozwala sprawdzic zuzycie pamieci w pc
+### 2. Zmienne
+- `REPORT_FILE="/tmp/daily-report.txt"` - ścieżka do tymczasowego pliku raportu
 
-WIZUALNE RZECZY
-mail -s "Daily report - $(hostname) - $(date +%Y-%m-%d)" 77daniel.kontakt@gmail.com < /tmp/daily-report.txt - wyslanie raportu na maila 
+### 3. Komendy systemowe
+- `uname -a` - wyświetla szczegółowe informacje o systemie
+- `df -h` - pokazuje zużycie miejsca na dyskach
+- `free -h` - wyświetla informacje o zużyciu pamięci
+- `uptime` - pokazuje czas pracy systemu i obciążenie
+- `systemctl status` - sprawdza status usług systemowych
 
-cat /tmp/daily-report.txt - wyswietlenie danych zebranych przez skryot
+### 4. Proces działania
+1. Tworzenie pliku tymczasowego w `/tmp/`
+2. Zbieranie informacji o systemie
+3. Zapisywanie danych do pliku raportu
+4. Wyświetlenie raportu w terminalu
+5. Usunięcie pliku tymczasowego
 
-rm /tmp/daily-report.txt - usuniecie raport aby zwolnic pamiec 
+## 📜 Skrypt
+
+```bash
+
+#!/bin/bash
+
+# Zmienna dla pliku raportu
+REPORT_FILE="/tmp/daily-report.txt"
+
+# Inicjalizacja pliku raportu
+echo " " > "$REPORT_FILE"
+echo "Daniel Kadej" >> "$REPORT_FILE"
+echo " " >> "$REPORT_FILE"
+echo "Codzienny raport systemu, data: $(date) !" >> "$REPORT_FILE"
+echo "Hostname: $(hostname)" >> "$REPORT_FILE"
+echo " " >> "$REPORT_FILE"
+
+# Informacje o systemie
+echo "Informacje o systemie" >> "$REPORT_FILE" 
+uname -a >> "$REPORT_FILE"
+echo "DISK USAGE - sprawdzenie miejsca na dysku:" >> "$REPORT_FILE"
+df -h >> "$REPORT_FILE"
+echo " " >> "$REPORT_FILE"
+
+# Zużycie pamięci
+echo "MEMORY USAGE - sprawdzenie zużycie pamięci:" >> "$REPORT_FILE"
+free -h >> "$REPORT_FILE"
+echo " " >> "$REPORT_FILE"
+
+# Obciążenie systemu
+echo "SYSTEM LOAD - obciążenie systemu: " >> "$REPORT_FILE"
+echo "Czas pracy: $(uptime) " >> "$REPORT_FILE"
+echo " " >> "$REPORT_FILE"
+
+# Status usług (zakomentowane - można odkomentować gdy usługi są dostępne)
+echo "Sprawdzenie najważniejszych usług: " >> "$REPORT_FILE"
+echo "SERVICE STATUS" >> "$REPORT_FILE"
+#systemctl status sshd | head -3 >> "$REPORT_FILE"
+#systemctl status nginx | head -3 >> "$REPORT_FILE"
+#systemctl status postgresql | head -3 >> "$REPORT_FILE"
+echo " " >> "$REPORT_FILE"
+
+# Wyświetlenie raportu w terminalu
+cat "$REPORT_FILE"
+
+# Usunięcie pliku tymczasowego
+rm "$REPORT_FILE"
+```
