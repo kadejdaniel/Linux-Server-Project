@@ -1,45 +1,40 @@
-skrypt polega na zapisywaniu jednego foldera glownego, do foldera o nazwie backupDic
+# 🗂️ Backup Script
 
-**#!/bin/bash**
+Skrypt służy do wykonywania kopii zapasowej jednego katalogu głównego i zapisywania jej w folderze o nazwie **backupDic**.  
+Kopia zapisywana jest jako plik `.tar.gz` z dopisaną datą i godziną utworzenia.
 
-**SOURCE="/home/daniel/mainDirectory"**
-**DEST="/home/daniel/backupDic"**
+---
 
-**DATE=$(date +"%Y%m%d_%H%M%S")**
-**BACKUP_NAME="backup_$DATE.tar.gz"**
+## 📜 Skrypt
 
-**mkdir -p "$DEST"**
+```bash
+#!/bin/bash
 
-**tar -czf "$DEST/$BACKUP_NAME" -C "$SOURCE" .**
-
-**echo "backup zapisany w: $DEST/$BACKUP_NAME"**
-
-
-
-mamy dwie zmienne **SOURCE** i **DEST**
 SOURCE="/home/daniel/mainDirectory"
 DEST="/home/daniel/backupDic"
 
-inicjalizujemy również zmienne BACKUP_NAME oraz DATE - aby mieć wszystko w latwiejszym dla nas formacie
+DATE=$(date +"%Y%m%d_%H%M%S")
+BACKUP_NAME="backup_$DATE.tar.gz"
 
-DATE=$(date +"%Y%m%d_%H%M%S") - date +"%Y%m%d_%H%M%S" pozwala nam zapisać date backupu w formacie (rok miesiac dzien _ godzina minuta sekunda)
+mkdir -p "$DEST"
 
-BACKUP_NAME="backup_$DATE.tar.gz" - tutaj mamy zmienna ktora bedzie potrzebna nam do zapisu koncowego czyli gdzie backup zostal zapisany
-
-mkdir -p "$DEST" - warunek dzieki ktoremu powstanie folder o sciezce $DEST 
-
-rozbicie na części linijki do archiwizacji
 tar -czf "$DEST/$BACKUP_NAME" -C "$SOURCE" .
 
-**tar** - narzędzie do archiwizacji
-**c** - create tworzy nowe archiwum
-**z** - gzip, kompresuje plik
-**f** - okresla rodzaj pliku
-**C** - change directory czyli zmien folder na zrodlowy
-**"$DEST/$BACKUP_NAME"** - sciezka do pliku w ktorym ma byc backup
-**.** - pakuj zawartosc folderu a nie folder
+echo "backup zapisany w: $DEST/$BACKUP_NAME"
 
-echo "backup zapisany w $DEST/$BACKUP_NAME"
+## 🔎 Opis działania
 
-Aby uruchomic:
-najlepiej chmod +x lub chmod 100
+1. **Zmienne główne**
+   - `SOURCE="/home/daniel/mainDirectory"` – katalog, którego zawartość zostanie zarchiwizowana  
+   - `DEST="/home/daniel/backupDic"` – katalog, w którym zapisane będą pliki backupu  
+
+2. **Zmienne pomocnicze**
+   - `DATE=$(date +"%Y%m%d_%H%M%S")` – pobiera aktualną datę i godzinę w formacie `RRRRMMDD_GGMMSS` (np. `20250914_142312`)  
+   - `BACKUP_NAME="backup_$DATE.tar.gz"` – ustawia nazwę pliku wynikowego backupu  
+
+3. **Tworzenie katalogu docelowego**
+   - `mkdir -p "$DEST"` – jeśli katalog docelowy nie istnieje, zostanie automatycznie utworzony  
+
+4. **Tworzenie archiwum**
+   ```bash
+   tar -czf "$DEST/$BACKUP_NAME" -C "$SOURCE" .
