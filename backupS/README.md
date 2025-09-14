@@ -38,3 +38,19 @@ echo "backup zapisany w: $DEST/$BACKUP_NAME"
 4. **Tworzenie archiwum**
    ```bash
    tar -czf "$DEST/$BACKUP_NAME" -C "$SOURCE" .
+
+tar – narzędzie do archiwizacji
+
+-c – create → utwórz nowe archiwum
+
+-z – gzip → skompresuj plik
+
+-f – file → określ nazwę pliku wynikowego
+
+-C "$SOURCE" – zmiana katalogu na źródłowy
+
+. – archiwizuje zawartość katalogu, a nie sam folder
+
+Komunikat końcowy
+
+echo "backup zapisany w: $DEST/$BACKUP_NAME" – wyświetla informację, gdzie został zapisany plik backupu
