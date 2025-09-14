@@ -5,6 +5,22 @@ Kopia zapisywana jest jako plik `.tar.gz` z dopisaną datą i godziną utworzeni
 
 ---
 
+## 🔎 Opis działania
+
+### 1. Zmienne główne
+- `SOURCE="/home/daniel/mainDirectory"` - katalog, którego zawartość zostanie zarchiwizowana
+- `DEST="/home/daniel/backupDic"` - katalog, w którym zapisane będą pliki backupu
+
+### 2. Zmienne pomocnicze
+- `DATE=$(date +"%Y%m%d_%H%M%S")` - pobiera aktualną datę i godzinę w formacie `RRRRMMDD_GGMMSS` (np. `20250914_142312`)
+- `BACKUP_NAME="backup_$DATE.tar.gz"` - ustawia nazwę pliku wynikowego backupu
+
+### 3. Tworzenie katalogu docelowego
+- `mkdir -p "$DEST"` - jeśli katalog docelowy nie istnieje, zostanie automatycznie utworzony
+
+### 4. Tworzenie archiwum
+```bash
+
 ## 📜 Skrypt
 
 ```bash
@@ -21,36 +37,16 @@ mkdir -p "$DEST"
 tar -czf "$DEST/$BACKUP_NAME" -C "$SOURCE" .
 
 echo "backup zapisany w: $DEST/$BACKUP_NAME"
+```
 
-## 🔎 Opis działania
+### 5. Parametry tar
+- `tar` - Główne narzędzie do tworzenia i manipulacji archiwami
+- `-c` - **Create** - tworzy nowe archiwum
+- `-z` - **Gzip** - kompresuje archiwum przy użyciu algorytmu gzip
+- `-f` - **File** - określa nazwę pliku wynikowego
+- `-C "$SOURCE"` - **Change directory** - zmienia katalog roboczy przed wykonaniem operacji
+- `.` - Archiwizuje zawartość bieżącego katalogu (nie sam katalog)
+### 6. Komunikat końcowy
 
-1. **Zmienne główne**
-   - `SOURCE="/home/daniel/mainDirectory"` – katalog, którego zawartość zostanie zarchiwizowana  
-   - `DEST="/home/daniel/backupDic"` – katalog, w którym zapisane będą pliki backupu  
-
-2. **Zmienne pomocnicze**
-   - `DATE=$(date +"%Y%m%d_%H%M%S")` – pobiera aktualną datę i godzinę w formacie `RRRRMMDD_GGMMSS` (np. `20250914_142312`)  
-   - `BACKUP_NAME="backup_$DATE.tar.gz"` – ustawia nazwę pliku wynikowego backupu  
-
-3. **Tworzenie katalogu docelowego**
-   - `mkdir -p "$DEST"` – jeśli katalog docelowy nie istnieje, zostanie automatycznie utworzony  
-
-4. **Tworzenie archiwum**
-   ```bash
-   tar -czf "$DEST/$BACKUP_NAME" -C "$SOURCE" .
-
-tar – narzędzie do archiwizacji
-
--c – create → utwórz nowe archiwum
-
--z – gzip → skompresuj plik
-
--f – file → określ nazwę pliku wynikowego
-
--C "$SOURCE" – zmiana katalogu na źródłowy
-
-. – archiwizuje zawartość katalogu, a nie sam folder
-
-Komunikat końcowy
-
-echo "backup zapisany w: $DEST/$BACKUP_NAME" – wyświetla informację, gdzie został zapisany plik backupu
+```bash
+echo "backup zapisany w: $DEST/$BACKUP_NAME"
