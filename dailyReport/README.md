@@ -67,7 +67,7 @@ echo "SYSTEM LOAD - obciążenie systemu: " >> "$REPORT_FILE"
 echo "Czas pracy: $(uptime) " >> "$REPORT_FILE"
 echo " " >> "$REPORT_FILE"
 
-# Status usług (zakomentowane - można odkomentować gdy usługi są dostępne)
+# Status usług (zakomentowane - można odkomentować gdy usługi są dostępne, niestety nie sa skonfigurowane)
 echo "Sprawdzenie najważniejszych usług: " >> "$REPORT_FILE"
 echo "SERVICE STATUS" >> "$REPORT_FILE"
 #systemctl status sshd | head -3 >> "$REPORT_FILE"
@@ -80,4 +80,8 @@ cat "$REPORT_FILE"
 
 # Usunięcie pliku tymczasowego
 rm "$REPORT_FILE"
+```
+### ▶️ Przykład użycia
+``` bash
+./updategit.sh 
 ```
